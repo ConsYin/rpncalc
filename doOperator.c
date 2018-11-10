@@ -35,10 +35,10 @@ static void pushInt(struct tokenStack *s, int v)
 
 int doOperator(struct tokenStack *stack, char *o) 
 {
-  struct operator_struct *op = ops;
-  for(op=ops;op->name != (char *)NULL; op++) {
-    if(!strcmp(op->name, o))
-      return op->fn_ptr(stack);
+  struct operator_struct *op = ops;// ops is an array of all possible operations, at line 16
+  for(op=ops;op->name != (char *)NULL; op++) {//seems the ops' key-value pairs just being assigned to "name" and "fn_ptr" I think?
+    if(!strcmp(op->name, o))//strcmp == compare the length of two string(two array of chars)
+      return op->fn_ptr(stack);// I'm lost, what is this stack and what is it doing here?
   }
   return(-1);
 }
